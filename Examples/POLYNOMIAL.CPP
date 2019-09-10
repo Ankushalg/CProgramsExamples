@@ -1,3 +1,4 @@
+// @author Ankush Kumar (ankushalg@gmal.com)
 #include<stdio.h>
 #include<conio.h>
 #include<math.h>
