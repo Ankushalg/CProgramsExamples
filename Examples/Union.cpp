@@ -28,20 +28,20 @@ int scan(int a[max], int n){
   }
   return k;
 }
-int uni(int a[max], int b[max], int c[MAX], int n, int m){
+int uni(int a[max], int b[max], int c[MAX], int m, int n){
   int i, j, k = 0;
-  for(i = 0; i < n; i++, k++){
+  for(i = 0; i < m; i++, k++){
     c[k] = a[i];
   }
-  for(j = 0; j < m; j++){
-    for(i = 0; i < n; i++){
+  for(j = 0; j < n; j++){
+    for(i = 0; i < m; i++){
       if(a[i] == b[j])
 	break;
     }
-  }
-  if(i == n){
-     c[k] = b[j];
-     k++;
+    if(i == m){
+      c[k] = b[j];
+      k++;
+    }
   }
   return k;
 }
@@ -51,24 +51,24 @@ void main() {
     clrscr();
     printf("Union of two Sets:-\n");
     X:printf("Enter Number of Elements of Set A: ");
-    scanf("%d", &n);
-    if(n > max) {
-        printf("Sorry! We can not work with sets having elements more than %d. Please Retry...\n",max);
-        goto X;
-    }
-    Y:printf("Enter Number of Elements of Set B: ");
     scanf("%d", &m);
     if(m > max) {
-        printf("Sorry! We can not work with sets having elements more than %d. Please Retry...\n",max);
-        goto Y;
+	printf("Sorry! We can not work with sets having elements more than %d. Please Retry...\n",max);
+	goto X;
     }
-    scan(a, n);
-    scan(b, m);
-    p = uni(a, b, c, n, m);
+    Y:printf("Enter Number of Elements of Set B: ");
+    scanf("%d", &n);
+    if(n > max) {
+	printf("Sorry! We can not work with sets having elements more than %d. Please Retry...\n",max);
+	goto Y;
+    }
+    scan(a, m);
+    scan(b, n);
+    p = uni(a, b, c, m, n);
     printf("\nSet A : ");
-    print(a, n);
+    print(a, m);
     printf("\nSet B : ");
-    print(b, m);
+    print(b, n);
     printf("\nUnion of Set A and Set B : ");
     print(c, p);
     getch();

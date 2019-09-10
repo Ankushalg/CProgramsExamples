@@ -2,6 +2,7 @@
 #include<stdio.h>
 #include<conio.h>
 #define max 20
+#define MAX 20
 void print(int a[max], int n){
   int i;
   printf("\n{");
@@ -27,20 +28,20 @@ int scan(int a[max], int n){
   }
   return k;
 }
-int uni(int a[max], int b[max], int c[max], int n, int m){
+int uni(int a[max], int b[max], int c[MAX], int m, int n){
   int i, j, k = 0;
-  for(i = 0; i < n; i++, k++){
+  for(i = 0; i < m; i++, k++){
     c[k] = a[i];
   }
-  for(j = 0; j < m; j++){
-    for(i = 0; i < n; i++){
+  for(j = 0; j < n; j++){
+    for(i = 0; i < m; i++){
       if(a[i] == b[j])
 	break;
     }
-  }
-  if(i == n){
-     c[k] = b[j];
-     k++;
+    if(i == m){
+      c[k] = b[j];
+      k++;
+    }
   }
   return k;
 }
@@ -52,6 +53,20 @@ int inter(int a[max], int b[max], int c[max], int n, int m){
 	break;
     }
     if(j < m){
+      c[k] = a[i];
+      k++;
+    }
+  }
+  return k;
+}
+int diff(int a[max], int b[max], int c[max], int n, int m){
+  int i, j, k = 0;
+  for(i = 0; i < n; i++){
+    for(j = 0; j < m; j++){
+      if(a[i] == b[j])
+	break;
+    }
+    if(j == m){
       c[k] = a[i];
       k++;
     }
