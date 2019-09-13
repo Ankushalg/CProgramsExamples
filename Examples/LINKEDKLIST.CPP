@@ -1,3 +1,4 @@
+// @author Ankush Kumar (ankushalg@gmail.com)
 #include<stdio.h>
 #include<conio.h>
 #include<malloc.h>
