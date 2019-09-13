@@ -1,4 +1,4 @@
-// @author Ankush Kumar (ankushalg@gmal.com)
+// @author Ankush Kumar (ankushalg@gmail.com)
 #include<stdio.h>
 #include<conio.h>
 #define max 10
